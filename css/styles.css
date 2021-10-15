@@ -73,9 +73,6 @@ section {
     margin: 0;
     text-align: right;
 }
-.navbar__inv{
-    visibility: hidden;
-}
 .navbar__menu li {
     display: inline-block;
 }

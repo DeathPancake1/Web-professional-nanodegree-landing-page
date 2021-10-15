@@ -24,6 +24,8 @@ let sections=document.querySelectorAll(`section`);
  * Start Helper Functions
  * 
 */
+
+//This function checks which section is in the view bounds
 function elemInView(element){
     let rec=element.getBoundingClientRect();
     return rec.top >= 0 &&
@@ -38,6 +40,7 @@ function elemInView(element){
  * 
 */
 
+//This function gets the artributes of section and uses them to link the nav bar to them
 function addNavigationItem(){
     const fragment = document.createDocumentFragment();
     for(const section of sections){
@@ -50,6 +53,8 @@ function addNavigationItem(){
     }
     document.getElementById('navbar__list').appendChild(fragment);
 }
+
+//This function is used to toggle the active section class for the sections beign viewed
 function toggleActive(){
     for(const section of sections){
         if(elemInView(section)){
@@ -60,14 +65,6 @@ function toggleActive(){
         }
     }
 }
-function showNav(){
-    let navBar=document.querySelector('.page__header');
-    navBar.classList.remove('navbar__inv');
-}
-function hideNav(){
-    let navBar=document.querySelector('.page__header');
-    navBar.classList.add('navbar__inv');
-}
 /**
  * End Main Functions
  * Begin Events
@@ -75,9 +72,6 @@ function hideNav(){
 */
 
 addNavigationItem();
-setTimeout(hideNav,5000);
 document.addEventListener('scroll',function(){
     toggleActive();
-    showNav();
-    setTimeout(hideNav,5000);
 });
